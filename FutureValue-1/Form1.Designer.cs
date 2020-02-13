@@ -86,6 +86,8 @@
             this.txtMonthlyInvestment.Name = "txtMonthlyInvestment";
             this.txtMonthlyInvestment.Size = new System.Drawing.Size(100, 20);
             this.txtMonthlyInvestment.TabIndex = 4;
+            this.txtMonthlyInvestment.TextChanged += new System.EventHandler(this.ClearFutureValue);
+            this.txtMonthlyInvestment.MouseHover += new System.EventHandler(this.ClearFutureValue);
             // 
             // txtInterestRate
             // 
@@ -93,6 +95,8 @@
             this.txtInterestRate.Name = "txtInterestRate";
             this.txtInterestRate.Size = new System.Drawing.Size(100, 20);
             this.txtInterestRate.TabIndex = 5;
+            this.txtInterestRate.TextChanged += new System.EventHandler(this.ClearFutureValue);
+            this.txtInterestRate.DoubleClick += new System.EventHandler(this.txtInterestRate_DoubleClick);
             // 
             // txtYears
             // 
@@ -100,6 +104,7 @@
             this.txtYears.Name = "txtYears";
             this.txtYears.Size = new System.Drawing.Size(100, 20);
             this.txtYears.TabIndex = 6;
+            this.txtYears.TextChanged += new System.EventHandler(this.ClearFutureValue);
             // 
             // txtFutureValue
             // 
@@ -151,6 +156,7 @@
             this.Name = "Form1";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Future Value";
+            this.DoubleClick += new System.EventHandler(this.Form1_DoubleClick);
             this.ResumeLayout(false);
             this.PerformLayout();
 

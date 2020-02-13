@@ -44,9 +44,27 @@ namespace FutureValue_1
             decimal monthlyInterestRate;
             monthlyInterestRate = (yearlyInterestRate / 12) / 100;
 
-            /* Set the intial future value to zero, and
-             * calcualte the future value using the monthly investment and the monthly interest rate
-             * and display the result */
+          
+
+
+
+            /* Creating a new method named CalculateFutureValue using refactoring 
+             *to refactor the calculation in the event handler */
+             decimal futureValue = this.CalculateFutureValue(monthlyInvestment, months, monthlyInterestRate);
+           /* decimal futureValue = 0m;
+
+            for (int i = 0; i < months; i++)
+            {
+                futureValue = (futureValue + monthlyInvestment) * (1 + monthlyInterestRate);
+            } */
+
+
+            txtFutureValue.Text = futureValue.ToString("c");
+            txtMonthlyInvestment.Focus();
+        }
+
+         private decimal CalculateFutureValue(decimal monthlyInvestment, int months, decimal monthlyInterestRate)
+        {
             decimal futureValue = 0m;
 
             for (int i = 0; i < months; i++)
@@ -54,14 +72,32 @@ namespace FutureValue_1
                 futureValue = (futureValue + monthlyInvestment) * (1 + monthlyInterestRate);
             }
 
-            txtFutureValue.Text = futureValue.ToString("c");
-            txtMonthlyInvestment.Focus();
-        }
+            return futureValue;
+        } 
 
         private void btnExit_Click(object sender, EventArgs e)
         {
             // Exit from the program when finished the task
             this.Close();
+        }
+
+        private void ClearFutureValue(object sender, EventArgs e)
+        {
+            txtFutureValue.Text = "";
+        }
+
+        private void Form1_DoubleClick(object sender, EventArgs e)
+        {
+            txtFutureValue.Text = "";
+            txtMonthlyInvestment.Text = "";
+            txtInterestRate.Text = "";
+            txtYears.Text = "";
+
+        }
+
+        private void txtInterestRate_DoubleClick(object sender, EventArgs e)
+        {
+            txtInterestRate.Text = "12";
         }
     }
 }
