@@ -44,12 +44,11 @@ namespace FutureValue_1
             decimal monthlyInterestRate;
             monthlyInterestRate = (yearlyInterestRate / 12) / 100;
 
-          
+         
 
-
-
-            /* Creating a new method named CalculateFutureValue using refactoring 
-             *to refactor the calculation in the event handler */
+            /* Creating (adding) a new method named CalculateFutureValue
+             * with and without using refactoring, and call the method
+             * to refactor the calculation in the event handler */
              decimal futureValue = this.CalculateFutureValue(monthlyInvestment, months, monthlyInterestRate);
            /* decimal futureValue = 0m;
 
@@ -81,11 +80,23 @@ namespace FutureValue_1
             this.Close();
         }
 
+        /* Adding an event handler called ClearFutureValue and 
+         * wire this event handler to the TextChanged events of
+         * the Monthly Investment and the Yearly Interest Rate text boxes, 
+         * which make the value in the Future Value text box be cleared
+         * when the values in the first two text boxes are changed
+
+          * In addition wiring the "ClearFuturValue" event handler to
+          * the MouseHover event of the Monthly Investment text box to
+          * clear the Future Value text box when the mouse hover over this text box */
         private void ClearFutureValue(object sender, EventArgs e)
         {
             txtFutureValue.Text = "";
         }
 
+        /* Generating an event handler for the entire form - "Form1_DoubleClick", 
+         * which makes all the text boxes of the form to an empty string
+         * when double-click on the form */
         private void Form1_DoubleClick(object sender, EventArgs e)
         {
             txtFutureValue.Text = "";
@@ -95,6 +106,9 @@ namespace FutureValue_1
 
         }
 
+        /* Generating an event handler for the DoubleClick event of the Yearly Interest Rate 
+         * text box and set a value in this text box to 12. So, a value of 12 will displayed
+         * when doubleclick this text box */
         private void txtInterestRate_DoubleClick(object sender, EventArgs e)
         {
             txtInterestRate.Text = "12";
